@@ -1,4 +1,10 @@
-const app = require('express')();
-port = 3000
+var app = require('express')();
+port = 3000;
 
-listen
+app.use(require('express').json());
+app.use('/v1', require('./routes'));
+
+
+app.listen(port, () => {
+    console.log('Working!!!')
+});
