@@ -1,6 +1,6 @@
 var router = require('express').Router();
 
-router.use('/categories', require('./categories'));
-router.use('/meals', require('./meals'));
+router.use('/1/categories', require('./categories'));
+router.use('/1/meals', require('./meals'));
 
 module.exports = router;
