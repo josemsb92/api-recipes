@@ -1,11 +1,11 @@
 const data = require('../../data.json');
 
 function getByCategory(request, response) {
-    const meal = data.meals.filter((meal) => {
+    const meals = data.meals.filter((meal) => {
         //verifies if the cat or area exists
         let mealArea = (request.query.a) ? request.query.a : null;
         let mealCategory = (request.query.c) ? request.query.c : null;
-        
+
         if (mealArea == meal.strArea && mealCategory == meal.strCategory) {
             return meal;
         } else if (mealArea == null && mealCategory == meal.strCategory) {
@@ -19,13 +19,14 @@ function getByCategory(request, response) {
         if (meal.strMeal.includes(request.query.s)) {
             return meal
         }
-        if(meal.strMeal.toLowerCase().startsWith(request.query.f)){
+        if (meal.strMeal.toLowerCase().startsWith(request.query.f)) {
             return meal;
         }
     }
     )
+    const info = { data: { meals } }
 
-    response.status(200).json(meal);
+    response.status(200).json(info);
 }
 
 module.exports = getByCategory;

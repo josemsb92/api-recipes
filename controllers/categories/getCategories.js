@@ -1,9 +1,9 @@
 const data = require('../../data.json');
 
-function getCategories (req, res) {
-    console.log(req.query);
-    categories = data.category;
-    res.json(categories)
+function getCategories(req, res) {
+    const categories = data.category;
+    const info = { data: { categories } }
+    res.json(info)
 }
 
 module.exports = getCategories
